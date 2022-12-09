@@ -1,3 +1,4 @@
+// 向页面注入js
 import type { PlasmoContentScript } from "plasmo"
 
 export const config: PlasmoContentScript = {

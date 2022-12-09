@@ -104,7 +104,16 @@ function IndexPopup() {
   const cloudTest = () => {
     Parse.Cloud.run("userIsExisting", {email: 'caopingcpu@gmail.com'}).then((str) => {
       alert(JSON.stringify(str))
+    }).catch(error => {
+      //alert(JSON.stringify(error))
+      console.log(JSON.stringify(error));
     })
+  }
+
+  const popupBackgroud = () => {
+    chrome.runtime.sendMessage({method: 'add', args: [1,2]}, (response) => {
+      alert(response.res)
+    });
   }
 
   return (
@@ -120,6 +129,7 @@ function IndexPopup() {
         <button onClick={resetPasswd}>reset PassWd</button>
         <button onClick={loginWithGoogle}>login with google</button>
         <button onClick={cloudTest}>cloudTest</button>
+        <button onClick={popupBackgroud}>popupBackgroud</button>
         <Child/>
       </div>
     </div>
